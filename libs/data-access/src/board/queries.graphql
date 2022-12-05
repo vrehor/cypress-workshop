@@ -1,0 +1,34 @@
+query Boards {
+  boards {
+    id
+    name
+    starred
+  }
+}
+
+query Board($boardId: Int!) {
+  board(boardId: $boardId) {
+    ... on Board {
+      id
+      name
+      starred
+      lists {
+        cards {
+          deadline
+          description
+          id
+          name
+          order
+          done
+        }
+        id
+        name
+        order
+      }
+    }
+    ... on NotFoundError {
+      code
+      message
+    }
+  }
+}

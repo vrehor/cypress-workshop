@@ -1,0 +1,39 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.eslintcache
+
+# local env files
+.env
+
+# editors
+.idea
+.vscode
+.dir-locals.el
+
+# openapi
+openapitools.json
+
+.next
+
+dist
+
+tsconfig.tsbuildinfo
+
+docker-compose.yml
+
+/cache
+/.cache
+
+local-dev.db
+local-dev.db-journal

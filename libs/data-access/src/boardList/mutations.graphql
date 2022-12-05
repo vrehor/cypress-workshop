@@ -1,0 +1,67 @@
+mutation CreateBoardList($boardId: Int!, $input: BoardListInput!) {
+  createBoardList(boardId: $boardId, input: $input) {
+    ... on ValidationError {
+      code
+      fields
+      messages
+    }
+    ... on NotFoundError {
+      code
+      message
+    }
+    ... on BoardList {
+      cards {
+        deadline
+        description
+        id
+        name
+        order
+      }
+      id
+      name
+      order
+    }
+  }
+}
+
+mutation UpdateBoardList($listId: Int!, $input: BoardListUpdateInput!) {
+  updateBoardList(listId: $listId, input: $input) {
+    ... on NotFoundError {
+      code
+      message
+    }
+    ... on BoardList {
+      cards {
+        deadline
+        description
+        id
+        name
+        order
+      }
+      id
+      name
+      order
+    }
+  }
+}
+
+mutation DeleteBoardList($listId: Int!) {
+  deleteBoardList(listId: $listId) {
+    ... on NotFoundError {
+      code
+      message
+    }
+    ... on BoardList {
+      cards {
+        deadline
+        description
+        id
+        name
+        order
+      }
+      id
+      name
+      order
+    }
+  }
+}

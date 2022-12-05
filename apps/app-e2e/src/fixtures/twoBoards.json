@@ -1,0 +1,18 @@
+{
+  "data": {
+    "boards": [
+      {
+        "id": 1,
+        "name": "test board 1",
+        "starred": false,
+        "__typename": "Board"
+      },
+      {
+        "id": 2,
+        "name": "test board 2",
+        "starred": false,
+        "__typename": "Board"
+      }
+    ]
+  }
+}
