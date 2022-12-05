@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "sourceMap": false,
+    "outDir": "../../dist/out-tsc",
+    "allowJs": true,
+    "types": [
+      "cypress",
+      "node",
+      "@testing-library/cypress",
+      "cypress-file-upload",
+      "cypress-plugin-api"
+    ],
+    "paths": {
+      "@common/data-access": ["libs/data-access/src/index.ts"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.js"]
+}

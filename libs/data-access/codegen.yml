@@ -1,0 +1,16 @@
+# libs/data-access/codegen.yml
+
+overwrite: true
+schema: 'apps/api/generated/schema.graphql'
+generates:
+  libs/data-access/src/generated/index.tsx:
+    documents: 'libs/data-access/src/**/*.graphql'
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
+    config:
+      withHooks: true
+      withComponent: false
+      withHOC: false
+      nonOptionalTypename: true

@@ -1,0 +1,35 @@
+{
+  "root": "apps/app-e2e",
+  "sourceRoot": "apps/app-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "serve-all-for-testing": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["nx serve app", "nx serve api"],
+        "readyWhen": ">  NX  Web Development Server is listening at"
+      }
+    },
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/app-e2e/cypress.json",
+        "devServerTarget": "app-e2e:serve-all-for-testing"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "app:serve"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/app-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["app", "api"]
+}
