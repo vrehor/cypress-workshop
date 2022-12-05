@@ -1,0 +1,35 @@
+{
+  "root": "apps/api-e2e",
+  "sourceRoot": "apps/api-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "serve-api-for-testing": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": ["nx serve api"],
+        "readyWhen": "GraphQL server listening at"
+      }
+    },
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/api-e2e/cypress.json",
+        "devServerTarget": "api-e2e:serve-api-for-testing"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "api:serve"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/api-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["api"]
+}

@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "types": ["cypress"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "isolatedModules": false,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitReturns": true,
+    "baseUrl": ".",
+    "paths": {
+      "@npm/data-access": ["libs/data-access/src/index.ts"],
+      "@npm/okta": ["libs/okta/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
