@@ -1,0 +1,42 @@
+mutation CreateBoard($input: BoardInput!) {
+  createBoard(input: $input) {
+    ... on ValidationError {
+      code
+      fields
+      messages
+    }
+    ... on Board {
+      id
+      name
+      starred
+    }
+  }
+}
+
+mutation UpdateBoard($input: BoardUpdateInput!, $boardId: Int!) {
+  updateBoard(input: $input, boardId: $boardId) {
+    ... on NotFoundError {
+      code
+      message
+    }
+    ... on Board {
+      id
+      name
+      starred
+    }
+  }
+}
+
+mutation DeleteBoard($boardId: Int!) {
+  deleteBoard(boardId: $boardId) {
+    ... on NotFoundError {
+      code
+      message
+    }
+    ... on Board {
+      id
+      name
+      starred
+    }
+  }
+}

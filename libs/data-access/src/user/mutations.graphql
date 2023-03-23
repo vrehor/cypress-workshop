@@ -1,0 +1,29 @@
+mutation Login($input: LoginInput!) {
+  login(input: $input) {
+    ... on AuthorizationError {
+      code
+      message
+    }
+    ... on ValidationError {
+      code
+      fields
+      messages
+    }
+    ... on LoginData {
+      token
+    }
+  }
+}
+
+mutation Signup($input: LoginInput!) {
+  signup(input: $input) {
+    ... on ValidationError {
+      code
+      fields
+      messages
+    }
+    ... on LoginData {
+      token
+    }
+  }
+}

@@ -1,0 +1,55 @@
+mutation CreateCard($listId: Int!, $input: CardInput!) {
+  createCard(listId: $listId, input: $input) {
+    ... on ValidationError {
+      code
+      fields
+      messages
+    }
+    ... on NotFoundError {
+      code
+      message
+    }
+    ... on Card {
+      description
+      deadline
+      id
+      name
+      order
+      done
+    }
+  }
+}
+
+mutation UpdateCard($cardId: Int!, $input: CardUpdateInput!) {
+  updateCard(cardId: $cardId, input: $input) {
+    ... on NotFoundError {
+      code
+      message
+    }
+    ... on Card {
+      description
+      deadline
+      id
+      name
+      order
+      done
+    }
+  }
+}
+
+mutation DeleteCard($cardId: Int!) {
+  deleteCard(cardId: $cardId) {
+    ... on NotFoundError {
+      code
+      message
+    }
+    ... on Card {
+      description
+      deadline
+      id
+      name
+      order
+      done
+    }
+  }
+}

@@ -1,0 +1,17 @@
+query Users {
+  users {
+    ... on User {
+      id
+      email
+    }
+  }
+}
+
+query User {
+  user {
+    ... on User {
+      id
+      email
+    }
+  }
+}

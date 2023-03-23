@@ -1,0 +1,33 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "jsx": "preserve",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "types": ["node", "jest"],
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "paths": {
+      "@common/data-access": ["libs/data-access/src/index.ts"],
+      "@common-ui/store": ["libs/common-ui/src/store/index.ts"],
+      "@common-ui/components": ["libs/common-ui/src/components/index.ts"],
+      "@common-ui/themes": ["libs/common-ui/src/themes/index.ts"],
+      "@common-ui/config": ["libs/common-ui/src/config/index.ts"],
+      "@common-ui/context": ["libs/common-ui/src/context/index.ts"],
+      "@common-ui/constants": ["libs/common-ui/src/constants/index.ts"]
+    }
+  },
+  "files": [
+    "../../types/styled-components.d.ts",
+    "../../types/json.d.ts",
+    "../../types/images.d.ts"
+  ],
+  "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+  "exclude": ["node_modules"]
+}

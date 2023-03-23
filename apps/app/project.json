@@ -1,0 +1,101 @@
+{
+  "name": "app",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "apps/app",
+  "sourceRoot": "apps/app",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/app",
+        "index": "apps/app/public/index.html",
+        "baseHref": "/",
+        "main": "apps/app/src/main.tsx",
+        "polyfills": "apps/app/src/polyfills.ts",
+        "tsConfig": "apps/app/tsconfig.json",
+        "assets": ["apps/app/public", "apps/app/mini-apps"],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "webpack.config.js"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/app/src/environments/environment.ts",
+              "with": "apps/app/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "app:build",
+        "hmr": true,
+        "port": 3002,
+        "host": "localhost",
+        "allowedHosts": "localhost"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "app:build:development"
+        },
+        "production": {
+          "buildTarget": "app:build:production",
+          "hmr": false,
+          "host": "0.0.0.0",
+          "allowedHosts": "localhost",
+          "port": 3001
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/app/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "tsc --noEmit -p ./apps/app/tsconfig.json"
+          },
+          {
+            "command": "tsc --noEmit -p ./apps/app/tsconfig.spec.json"
+          }
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/app"],
+      "options": {
+        "jestConfig": "apps/app/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

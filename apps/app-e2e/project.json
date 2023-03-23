@@ -1,0 +1,45 @@
+{
+  "name": "app-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "root": "apps/app-e2e",
+  "sourceRoot": "apps/app-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/app-e2e/cypress.config.ts"
+      },
+      "configurations": {
+        "production": {}
+      }
+    },
+    "component-test": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/app-e2e/cypress.config.ts",
+        "testingType": "component",
+        "skipServe": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/app-e2e/**/*.{js,ts}"]
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "tsc --noEmit -p ./apps/app-e2e/tsconfig.json"
+          }
+        ]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["app", "api"]
+}
