@@ -4,6 +4,14 @@ Unlike his project, this one uses Graphql, React, typescript and should serve fo
 
 !Project is still under construction
 
+## How to run project
+
+1. Clone repo: ``git clone git@github.com:vrehor/cypress-workshop.git``
+2. Install dependencies: ``npm install``
+3. Init DB: ``npm run prisma:migrate``
+4. Run app: ``npm run serve:all``
+5. Open URL address in the browser http://localhost:3002
+
 ## How to use this project
 Purpose for this project is to provide application in specific technologies to learn cypress basics.
 
@@ -42,11 +50,7 @@ Project uses monorepo (specifically NX).
   - common-ui ... library for UI stuffs that can be shared accross different apps (components, stores, config, ...)
   - data-access ... library with generated hooks for calling Graphql API (generated via codegen)
 
-## How to run project
 
-1. Clone repo: ``git clone git@github.com:vrehor/cypress-workshop.git`` 
-2. Install dependencies: ``npm install``
-3. Init DB: ``npm run prisma:migrate`` 
 
 ### How to run APP
 The whole project can be run with this command ``npm run serve:all``.
