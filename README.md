@@ -6,6 +6,14 @@ Unlike his project, this one uses Graphql, React, typescript and should serve fo
 
 ## How to run project
 
+### Prerequisites
+- [Install VS Code](https://code.visualstudio.com/download)
+- [Install NPM](https://radixweb.com/blog/installing-npm-and-nodejs-on-windows-and-mac#mac)
+- [Install Git](https://github.com/git-guides/install-git)
+- [Add SSH key to GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+
+### Steps
+
 1. Clone repo: ``git clone git@github.com:vrehor/cypress-workshop.git``
 2. Install dependencies: ``npm install``
 3. Init DB: ``npm run prisma:migrate``
